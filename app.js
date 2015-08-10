@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -19,6 +20,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride());
 app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -56,7 +58,32 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
+//var mongoose = require('mongoose');
+//
+//mongoose.connect('mongodb://localhost/mydb');
+//
+//var Schema = new mongoose.Schema({
+//    _id    : String,
+//    name: String,
+//    age   : Number
+//});
+//
+//var user = mongoose.model('customers', Schema);
+//
+//app.post('/addnewCustomer', function(req, res){
+//    res.render('about', {
+//        title: 'About'
+//    });
+//   // res.send('Successfully inserted!');
+//    //new user({
+//    //    _id    : req.body.email,
+//    //    name: req.body.name,
+//    //    age   : req.body.age
+//    //}).save(function(err, doc){
+//    //        if(err) res.json(err);
+//    //        else    res.send('Successfully inserted!');
+//    //    });
+//});
 
 
 module.exports = app;
