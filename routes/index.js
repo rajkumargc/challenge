@@ -19,11 +19,11 @@ router.get('/challenge2', function(req, res){
 /*
 
 Database connection and operations
-
+ mongodb://c1:pass@ds033143.mongolab.com:33143/mydb
 */
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mydb');
+mongoose.connect('mongodb://c1:pass@ds033143.mongolab.com:33143/mydb');
 var Schema = new mongoose.Schema({
     _id    : String,
     name: String,
