@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet',href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    header
+      nav.navbar.navbar-inverse.navbar-fixed-top
+          .container
+              .navbar-header
+                  button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+                      span.sr-only Toggle navigation
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+
+                  a(class='navbar-brand',href='/') Sample Project
+
+              #navbar.collapse.navbar-collapse
+                  ul.nav.navbar-nav
+                    li
+                      a( href="/") Home
+                    li
+                      a( href="/about") About
+                    li
+                      a( href="/challenge2") Challenge:2
+
+ block content
+
+      footer
+script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+script(src="/javascripts/bootstrap.min.js")
+
+
