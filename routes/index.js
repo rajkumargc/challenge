@@ -61,7 +61,7 @@ router.post('/addnewCustomer', function(req, res){
 //LIST customers
 
 router.get('/listcustomers', function(req, res){
-    if(req.cookies.allowed =='yes') {
+    //if(req.cookies.allowed =='yes') {
         user.find({}, function (err, docs) {
             if (err)//res.json(err);
                 res.render('error', {error: err, status: err.status, name: err.name, stack: err.stack});
@@ -69,20 +69,20 @@ router.get('/listcustomers', function(req, res){
             // res.send(req.cookies.allowed);
                 res.render('listcustomers', {users: docs});
         });
-    }else{
-        res.render('404',{ status: 404, url: req.url });
-    }
+    //}else{
+    //    res.render('404',{ status: 404, url: req.url });
+    //}
 });
 
 
 //EDIT / UPDATE
 
 router.get('/user/:id/edit', function(req, res){
-    if(req.cookies.allowed =='yes') {
+    //if(req.cookies.allowed =='yes') {
         res.render('editcustomer', {user: req.userId});
-    }else{
-        res.render('404',{ status: 404, url: req.url });
-    }
+    //}else{
+    //    res.render('404',{ status: 404, url: req.url });
+    //}
 });
 
 
@@ -166,7 +166,7 @@ router.post('/user/:id', function(req, res){
 
 
 router.get('/user/:id/delete', function(req, res){
-    if(req.cookies.allowed =='yes') {
+    //if(req.cookies.allowed =='yes') {
         user.remove({_id: req.params.id},
             function (err) {
                 if (err) //res.json(err);
@@ -180,9 +180,9 @@ router.get('/user/:id/delete', function(req, res){
                 //    });
                 //});
             });
-    }else{
-        res.render('404',{ status: 404, url: req.url });
-    }
+    //}else{
+    //    res.render('404',{ status: 404, url: req.url });
+    //}
 });
 router.use(function(req,res){
     res.render('404',{ status: 404, url: req.url });
